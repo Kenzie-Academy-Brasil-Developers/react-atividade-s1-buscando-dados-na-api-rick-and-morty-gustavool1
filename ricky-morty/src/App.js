@@ -1,19 +1,23 @@
 import './App.css';
 import Character from './components/Characters';
-import ChardCard from './components/CharCard';
+
 import { useState, useEffect } from 'react';
 function App() {
-  const [ characterList, setcharacterList ] = useState([])
+  const [ characterList, setcharacterList ] = useState(null)
   useEffect(()=>{
-    fetch('https://rickandmortyapi.com/api/character/',).then(response => response.json())
-    .then(response => setcharacterList(response))
-    .catch((err)=>console.log(err))
+    fetch('https://rickandmortyapi.com/api/character/')
+    .then(response =>{
+      return response.json()
+    })
+    .then((data) =>{
+      setcharacterList(data)
+    })
   },[])
-  
+  console.log(characterList)
   return (
     <div className="App">
       <header className="App-header">
-        <Character charactersList={characterList}></Character>
+        {characterList && <Character charactersList={characterList}></Character>}
       </header>
     </div>
   );

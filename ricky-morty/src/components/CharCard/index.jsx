@@ -1,7 +1,6 @@
 import './style.css'
 
 const ChardCard = ({personagem}) =>{
-    console.log(personagem)
     return(
         <>
             {personagem.status === 'Alive' ?(

@@ -9,5 +9,7 @@ section{
 @media screen and (min-width:768px){
     section{
         flex-direction: row;
+        width: 80%;
+        min-width: 768px;
     }
 }
